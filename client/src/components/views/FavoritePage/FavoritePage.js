@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './favorite.css'
+import { Button } from 'antd'
 import Axios from 'axios'
 
 function FavoritePage() {
@@ -45,17 +46,17 @@ function FavoritePage() {
         <table>
             <thead>
                 <tr>
-                    <th>Movie Title</th>
-                    <th>Movie Runtime</th>
-                    <td>Remove from Favorite</td>
+                    <th>Title</th>
+                    <th>Runtime</th>
+                    <th>Remove from Favorite</th>
                 </tr>
             </thead>
             <tbody>
                 {Favorites.map((favorite, index) => (
-                    <tr ket={index}>
-                        <td>{favorite.movieTitle}</td>
+                    <tr key={index}>
+                        <td><a href={`/movie/${favorite.movieId}`}>{favorite.movieTitle}</a></td>
                         <td>{favorite.movieRunTime} mins</td>
-                        <td><button onClick={() => onClickDelete(favorite.movieId, favorite.userFrom)}>Remove</button></td>
+                        <td><Button onClick={() => onClickDelete(favorite.movieId, favorite.userFrom)}>Remove</Button></td>
                     </tr>
                 ))}
             </tbody>

@@ -3,7 +3,7 @@ import { API_URL, API_KEY, IMAGE_BASE_URL } from '../../Config';
 import MainImage from '../commons/MainImage'
 import MovieInfo from './Sections/MovieInfo'
 import GridCards from '../commons/GridCards';
-import { Row } from 'antd';
+import { Row, Button } from 'antd';
 import Favorite from './Sections/Favorite';
 
 function MovieDetail(props) {
@@ -29,7 +29,6 @@ function MovieDetail(props) {
             .then(response => {
                 setCasts(response.cast)
             })
-        
         
     }, [])
 
@@ -61,7 +60,7 @@ function MovieDetail(props) {
                 
                 {/* Actors Grid */}
                 <div style={{ display: 'flex', justifyContent:'center', margin:'2rem' }}>
-                    <button onClick={toggleActorView}>Toggle Actor view</button>
+                    <Button onClick={toggleActorView}>Toggle Actor View</Button>
                 </div>
 
                 {ActorToggle &&
