@@ -1,14 +1,14 @@
 import React, { Suspense } from 'react';
 import { Route, Switch } from "react-router-dom";
 import Auth from "../hoc/auth";
-// pages for this product
 import LandingPage from "./views/LandingPage/LandingPage.js";
 import LoginPage from "./views/LoginPage/LoginPage.js";
 import RegisterPage from "./views/RegisterPage/RegisterPage.js";
 import NavBar from "./views/NavBar/NavBar";
 import Footer from "./views/Footer/Footer";
 import MovieDeatil from './views/MovieDetail/MovieDetail';
-import FavoritePage from './views/FavoritePage/FavoritePage'
+import FavoritePage from './views/FavoritePage/FavoritePage';
+
 
 //null   Anyone Can go inside
 //true   only logged in user can go inside

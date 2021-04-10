@@ -4,7 +4,9 @@ import MainImage from '../commons/MainImage'
 import MovieInfo from './Sections/MovieInfo'
 import GridCards from '../commons/GridCards';
 import { Row, Button } from 'antd';
+import Axios from 'axios';
 import Favorite from './Sections/Favorite';
+import Comment from './Sections/Comment';
 
 function MovieDetail(props) {
     
@@ -12,6 +14,8 @@ function MovieDetail(props) {
     const [Movie, setMovie] = useState([])
     const [Casts, setCasts] = useState([])
     const [ActorToggle, setActorToggle] = useState(false)
+    const [Comments, setComments] = useState([])
+    const variable = { movieId: movieId }
 
     useEffect(() => {
         
@@ -30,10 +34,23 @@ function MovieDetail(props) {
                 setCasts(response.cast)
             })
         
+        Axios.post('/api/comment/getComments', variable)
+            .then(response => {
+                if(response.data.success) {
+                    setComments(response.data.comments)
+                } else{
+                    alert('Failed to load comment')
+                }
+            })
+
     }, [])
 
     const toggleActorView = () => {
         setActorToggle(!ActorToggle)
+    }
+
+    const refreshFunction = (newComment) => {
+        setComments(Comments.concat(newComment))
     }
 
     return (
@@ -58,6 +75,9 @@ function MovieDetail(props) {
                 />
                 <br />
                 
+                {/* Comment */}
+                <Comment refreshFunction={refreshFunction} commentLists={Comments} movieId={movieId} />
+
                 {/* Actors Grid */}
                 <div style={{ display: 'flex', justifyContent:'center', margin:'2rem' }}>
                     <Button onClick={toggleActorView}>Toggle Actor View</Button>
