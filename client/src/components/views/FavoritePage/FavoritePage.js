@@ -55,7 +55,7 @@ function FavoritePage() {
                 {Favorites.map((favorite, index) => (
                     <tr key={index}>
                         <td><a href={`/movie/${favorite.movieId}`}>{favorite.movieTitle}</a></td>
-                        <td>{favorite.movieRunTime} mins</td>
+                        <td>{favorite.movieRunTime} min</td>
                         <td><Button onClick={() => onClickDelete(favorite.movieId, favorite.userFrom)}>Remove</Button></td>
                     </tr>
                 ))}

@@ -12,9 +12,6 @@ const favoriteSchema = mongoose.Schema({
     movieTitle: {
         type: String
     },
-    moviePost: {
-        type: String
-    },
     movieRunTime: {
         type: String
     }    
