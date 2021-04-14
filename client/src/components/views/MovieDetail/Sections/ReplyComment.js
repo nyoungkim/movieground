@@ -36,7 +36,7 @@ function ReplyComment(props) {
     return (
         <div>
             {ChildCommentNumber > 0 &&
-                <p style={{ fontSize: '14px', margin: 0, color: 'grey' }} onClick={onHandleChange} >
+                <p style={{ fontSize: '12px', margin: 0, color: 'grey', marginLeft: '44px' }} onClick={onHandleChange} >
                     View {ChildCommentNumber} more comment(s)
                 </p>
             }
