@@ -89,7 +89,7 @@ function MovieDetail(props) {
                         <React.Fragment key={index}>
                             <GridCards 
                                 image={cast.profile_path ? 
-                                    `${IMAGE_BASE_URL}w500${cast.profile_path}` : null}
+                                    `${IMAGE_BASE_URL}w500${cast.profile_path}` : require('../../default-img.jpg') }
                                 castName={cast.name}
                             />
                         </React.Fragment>
